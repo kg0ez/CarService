@@ -28,11 +28,6 @@ namespace CarService.Model
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Car>()
-                .HasOne(c => c.Cost)
-                .WithOne(co => co.Car)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            modelBuilder.Entity<Car>()
                 .HasOne(c => c.Characteristics)
                 .WithOne(ch => ch.Car)
                 .OnDelete(DeleteBehavior.Cascade);
@@ -48,7 +43,7 @@ namespace CarService.Model
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Detail>()
-                .HasMany(d => d.Basket)
+                .HasOne(d => d.Basket)
                 .WithOne(c => c.Detail)
                 .OnDelete(DeleteBehavior.Cascade);
 

@@ -8,8 +8,6 @@ namespace CarService.Model.Models
         public decimal CostDelivery { get; set; }
         public string TimeDelivery { get; set; } = null!;
 
-        public Car Car { get; set; }
-
         public Detail Detail { get; set; }
     }
 }

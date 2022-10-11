@@ -1,0 +1,37 @@
+﻿@model IEnumerable<CarService.Common.ModelDto.CarDto>
+<head>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <div class="container">
+        <section>
+            <h2 class="title">Автоматизация продаж машин</h2>
+            <p class="desc">Машины на любой вкус</p>
+            <div class="card">
+                @foreach (var item in Model)
+                {
+                    <div class="card__item">
+                        <div class="card__cover">
+                            <img class="card__img" src="~/img/cars/@item.Img" alt="@item.Model" />
+                        </div>
+                        <div class="card__info">
+                            <div>
+                                <p class="card__book">@item.Brand @item.Model</p>
+                            </div>
+                            <p class="text__price">Цена<span class="card__price">@item.Cost</span></p>
+                        </div>
+                        <div class="card__b">
+
+                            <a asp-action="AboutBook" asp-controller="Home" asp-route-id="@item.Id" class="card__link">Больше информации</a>
+
+                            <form asp-controller="Home" asp-action="AddBusket" method="post" asp-route-id="@item.Id">
+                                <input class="card__link button-len" type="submit" value="Переделать в купить" />
+                            </form>
+                        </div>
+                    </div>
+                }
+            </div>
+        </section>
+    </div>
+</body>
+

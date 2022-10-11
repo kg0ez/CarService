@@ -10,7 +10,7 @@ namespace CarService.Model.Models
         public string DriveUnit { get; set; } = null!;
         public string Year { get; set; } = null!;
         public string Description { get; set; } = null!;
-        public decimal Weight { get; set; }
+        public int Mileage { get; set; }
 
         public Car Car { get; set; }
     }

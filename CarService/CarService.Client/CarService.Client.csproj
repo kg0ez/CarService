@@ -6,4 +6,25 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CarService.Common\CarService.Common.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\img\" />
+    <Content Remove="wwwroot\img\cars\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\img\" />
+    <Folder Include="wwwroot\img\cars\" />
+    <Folder Include="Handlers\" />
+    <Folder Include="ClientConnection\" />
+    <Folder Include="Views\Car\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Handlers\" />
+    <None Remove="ClientConnection\" />
+    <None Remove="Views\Car\" />
+  </ItemGroup>
 </Project>
