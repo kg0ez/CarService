@@ -24,9 +24,9 @@ namespace CarService.Serv.Services
         }
         public string Get(int Id)
         {
-            var cars = _carService.Get(Id);
+            var car = _carService.Get(Id);
 
-            var response = JsonSerializer.Serialize<CarDto>(cars);
+            var response = JsonSerializer.Serialize<CarDto>(car);
 
             return response;
         }

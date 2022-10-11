@@ -14,8 +14,6 @@ namespace CarService.Model.Models
         public Cost Cost { get; set; }
 
         public DetailStore DetailStore { get; set; }
-
-        public Basket Basket { get; set; }
     }
 }
 

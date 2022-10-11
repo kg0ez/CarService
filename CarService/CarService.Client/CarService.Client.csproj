@@ -14,6 +14,7 @@
   <ItemGroup>
     <Content Remove="wwwroot\img\" />
     <Content Remove="wwwroot\img\cars\" />
+    <Content Remove="wwwroot\img\details\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\img\" />
@@ -21,10 +22,13 @@
     <Folder Include="Handlers\" />
     <Folder Include="ClientConnection\" />
     <Folder Include="Views\Car\" />
+    <Folder Include="Views\Detail\" />
+    <Folder Include="wwwroot\img\details\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Handlers\" />
     <None Remove="ClientConnection\" />
     <None Remove="Views\Car\" />
+    <None Remove="Views\Detail\" />
   </ItemGroup>
 </Project>

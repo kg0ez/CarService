@@ -19,6 +19,10 @@ IMapper mapper = mapperConfiguration.CreateMapper();
 var serviceProvider = new ServiceCollection()
             .AddLogging()
             .AddSingleton<IMethodService, MethodService>()
+            .AddSingleton<IBasketService, BasketService>()
+            .AddSingleton<IBasketJsonService, BasketJsonService>()
+            .AddSingleton<IDetailService, DetailService>()
+            .AddSingleton<IDetailJsonService, DetailJsonService>()
             .AddSingleton<ICarJsonService, CarJsonService>()
             .AddSingleton<CarServiceContext, CarServiceContext>()
             .AddSingleton<ICarService, CarService.BusinessLogic.Services.CarService>()
@@ -26,8 +30,10 @@ var serviceProvider = new ServiceCollection()
             .BuildServiceProvider();
 
 var carService = serviceProvider.GetService<ICarService>();
+var detailService = serviceProvider.GetService<IDetailService>();
 var methodService = serviceProvider.GetService<IMethodService>();
 
+//detailService.Sync();
 //carService.Sync();
 //Console.WriteLine("sex");
 //Console.ReadLine();

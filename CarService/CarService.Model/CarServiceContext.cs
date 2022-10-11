@@ -42,10 +42,10 @@ namespace CarService.Model
                 .WithOne(c => c.Detail)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<Detail>()
-                .HasOne(d => d.Basket)
-                .WithOne(c => c.Detail)
-                .OnDelete(DeleteBehavior.Cascade);
+            //modelBuilder.Entity<Detail>()
+            //    .HasOne(d => d.Basket)
+            //    .WithOne(c => c.Detail)
+            //    .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<DetailStore>()
                 .HasOne(ds => ds.Detail)
