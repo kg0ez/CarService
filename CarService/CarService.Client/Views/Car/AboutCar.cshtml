@@ -1,0 +1,44 @@
+﻿@model CarService.Common.ModelDto.CarDto
+
+<section>
+    <div class="main">
+        <div class="main__image">
+            <img class="main__img" src="~/img/cars/@Model.Img" alt="img" />
+        </div>
+        <div class="main__text">
+            <div>
+
+            </div>
+            <h1 class="main__title">@Model.Brand @Model.Model</h1>
+            <p class="main__decs"><span class="book__characteristics">Цена:</span>  @Model.Cost</p>
+            <p class="main__decs"><span class="book__characteristics">Пробег:</span>  @Model.Characteristics.Mileage</p>
+            <p class="main__decs"><span class="book__characteristics">Год выпуска:</span>  @Model.Characteristics.Year</p>
+            <p class="main__decs"><span class="book__characteristics">Каробка передач:</span>  @Model.Characteristics.Transmission</p>
+            <p class="main__decs"><span class="book__characteristics">Кузов:</span>@Model.Characteristics.Carcase </p>
+            <p class="main__decs"><span class="book__characteristics">Тип двигателя:</span>  @Model.Characteristics.EngineType</p>
+            <p class="main__decs"><span class="book__characteristics">Привод:</span>  @Model.Characteristics.DriveUnit</p>
+            <p class="main__decs"><span class="book__characteristics">Система безопасности:</span>  @Model.AdditionalCharacteristic.SystemSecurity</p>
+            <p class="main__decs"><span class="book__characteristics">Подушки:</span>  @Model.AdditionalCharacteristic.Pillow</p>
+            <p class="main__decs"><span class="book__characteristics">Система помощи:</span>  @Model.AdditionalCharacteristic.SystemAssist</p>
+            <p class="main__decs"><span class="book__characteristics">Комфорт:</span>  @Model.AdditionalCharacteristic.Comfort</p>
+            <p class="main__decs"><span class="book__characteristics">Обогрев:</span>  @Model.AdditionalCharacteristic.Heating</p>
+            <p class="main__decs"><span class="book__characteristics">Климат:</span>  @Model.AdditionalCharacteristic.Climate</p>
+            <p class="main__decs"><span class="book__characteristics">Мультимедиа:</span>  @Model.AdditionalCharacteristic.Multimedia</p>
+            <p class="main__decs"><span class="book__characteristics">Фары:</span>  @Model.AdditionalCharacteristic.Lights</p>
+            <p class="main__decs"><span class="book__characteristics">Описание:</span>  @Model.Characteristics.Description</p>
+            <div class="main__buttoms">
+                <input class="card__link" type="submit" value="Купить сейчас" />
+                @*<form asp-controller="Home" asp-action="AddBusket" method="post" asp-route-id="@Model.Id">
+                    <input class="card__link" type="submit" value="Добавить в корзину" />
+                </form>*@
+            </div>
+            @*<ul class="main__list">
+                <li class="main__item"><span class="main__span">4.7</span>Рейтинг</li>
+                <li class="main__item"><span class="main__span">99.4%</span>Доставок вовремя</li>
+                <li class="main__item"><span class="main__span">0%</span>Товаров с дефектами</li>
+            </ul>*@
+        </div>
+
+    </div>
+</section>
+

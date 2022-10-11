@@ -12,6 +12,8 @@ namespace CarService.Model.Models
         public string Description { get; set; } = null!;
         public int Mileage { get; set; }
 
+        
+
         public Car Car { get; set; }
     }
 }

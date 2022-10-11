@@ -12,6 +12,8 @@ namespace CarService.Model.Models
         public int CharacteristicsId { get; set; }
         public Characteristic Characteristics { get; set; }
 
+        public int AdditionalCharacteristicId { get; set; }
+        public AdditionalCharacteristic AdditionalCharacteristic { get; set; }
 
         public CarStore CarStore { get; set; }
     }

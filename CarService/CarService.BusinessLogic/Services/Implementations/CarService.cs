@@ -27,6 +27,18 @@ namespace CarService.BusinessLogic.Services
             return carsDto;
         }
 
+        public CarDto Get(int id)
+        {
+            var car = _context.Cars
+                .Include(c => c.Characteristics)
+                .Include(c=>c.AdditionalCharacteristic)
+                .AsNoTracking()
+                .FirstOrDefault(c => c.Id == id);
+
+            var carDto = _mapper.Map<CarDto>(car);
+            return carDto;
+        }
+
         public void Sync()
         {
             var car = new Car
@@ -48,6 +60,17 @@ namespace CarService.BusinessLogic.Services
                 CarStore = new CarStore
                 {
                     Amount = 2
+                },
+                AdditionalCharacteristic = new AdditionalCharacteristic
+                {
+                    SystemSecurity = "ABS, ESP, сигнализация, иммобилайзер, антипробуксовочная",
+                    Pillow = "передние, боковые, задние",
+                    SystemAssist= "датчик дождя, парктроники, контроль мертвых зон на зеркалах",
+                    Comfort= "круиз-контроль, управление мультимедиа с руля, электрорегулировка сидений, передние электро-стеклоподъёмники, задние электро-стеклоподъёмники",
+                    Heating="руля, зеркал, сидений",
+                    Climate="климат-контроль, кондиционер",
+                    Multimedia="AUX или iPod, Bluetooth, CD или MP3, USB, мультимедийный экран, штатная навигация",
+                    Lights="Ксеноновые, противотуманные, светодиодные",
                 }
                 
             };

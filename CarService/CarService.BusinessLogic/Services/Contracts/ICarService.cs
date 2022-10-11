@@ -7,6 +7,7 @@ namespace CarService.BusinessLogic.Services
     {
         void Sync();
         List<CarDto> Get();
+        CarDto Get(int Id);
     }
 }
 

@@ -17,6 +17,7 @@ namespace CarService.BusinessLogic.Mapper
             CreateMap<Detail, DetailDto>().ReverseMap();
             CreateMap<DetailStore, DetailStoreDto>().ReverseMap();
             CreateMap<PurchaseHistory, PurchaseHistoryDto>().ReverseMap();
+            CreateMap<AdditionalCharacteristic, AdditionalCharacteristicDto>().ReverseMap();
         }
     }
 }

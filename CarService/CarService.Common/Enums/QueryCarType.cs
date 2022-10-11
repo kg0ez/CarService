@@ -3,7 +3,8 @@ namespace CarService.Common.Enums
 {
     public enum QueryCarType
     {
-        GetCars
+        GetCars,
+        Get
     }
 }
 

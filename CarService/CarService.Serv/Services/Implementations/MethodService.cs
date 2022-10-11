@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Text.Json;
 using CarService.Common.Enums;
+using CarService.Common.ModelDto;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace CarService.Serv.Services
 {
@@ -17,6 +20,11 @@ namespace CarService.Serv.Services
             if (query == QueryCarType.GetCars)
             {
                 return _carJsonService.Get();
+            }
+            else if (query == QueryCarType.Get)
+            {
+                int carId = JsonSerializer.Deserialize<int>(obj);
+                return _carJsonService.Get(carId);
             }
             throw new Exception("--");
         }

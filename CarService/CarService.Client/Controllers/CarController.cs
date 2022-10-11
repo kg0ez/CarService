@@ -22,9 +22,27 @@ namespace CarService.Client.Controllers
 
             string answer = Connection.Client(json);
 
-            var books = JsonSerializer.Deserialize<List<CarDto>>(answer);
+            var cars = JsonSerializer.Deserialize<List<CarDto>>(answer);
 
-            return View(books);
+            return View(cars);
+        }
+        public IActionResult AboutCar(Nullable<int> id)
+        {
+            if (!id.HasValue)
+                return NotFound();
+
+            var typeAction = QueryHandler<QueryCarType>.QueryTypeSerialize(QueryCarType.Get);
+
+            string json = QueryHandler<int>.Serialize((int)id, QueryType.Car, typeAction);
+
+            string answer = Connection.Client(json);
+
+            var car = JsonSerializer.Deserialize<CarDto>(answer);
+
+            if (car != null)
+                return View(car);
+
+            return NotFound();
         }
     }
 }
