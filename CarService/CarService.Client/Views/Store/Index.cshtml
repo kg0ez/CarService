@@ -1,0 +1,48 @@
+﻿@model CarService.Common.ModelDto.StoreDto
+<head>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <div class="container">
+        <section>
+            <h2 class="title">Склад</h2>
+            <div class="card">
+                @foreach (var item in @Model.CarStores)
+                {
+                    <div class="card__item">
+                        <div class="card__cover">
+                            <img class="card__img" src="~/img/cars/@item.Car.Img" alt="@item.Car.Model" />
+                        </div>
+                        <div class="card__info">
+                            <div>
+                                <p class="card__book">@item.Car.Brand @item.Car.Model</p>
+                            </div>
+                            <p class="text__price">Цена:<span class="card__price"> @item.Car.Cost</span></p>
+                        </div>
+                        <div>
+                            <p class="card__book">Количество машин: @item.Amount шт.</p>
+                        </div>
+                    </div>
+                }
+                @foreach (var item in @Model.DetailStores)
+                {
+                    <div class="card__item">
+                        <div class="card__cover">
+                            <img class="card__img" src="~/img/details/@item.Detail.Img" alt="@item.Detail.Name" />
+                        </div>
+                        <div class="card__info">
+                            <div>
+                                <p class="card__book">@item.Detail.Name</p>
+                            </div>
+                            <p class="text__price">Цена:<span class="card__price"> @item.Detail.Cost.Price</span></p>
+                        </div>
+                        <div>
+                            <p class="card__book">Количество деталей: @item.Amount шт.</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </section>
+    </div>
+</body>
+

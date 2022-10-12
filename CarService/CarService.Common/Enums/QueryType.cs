@@ -6,7 +6,8 @@ namespace CarService.Common.Enums
         Car,
         Detail,
         Basket,
-        PurchaseHistory
+        PurchaseHistory,
+        Store
     }
 }
 

@@ -28,7 +28,11 @@ namespace CarService.Serv.Handler
                 var nameMethod = JsonSerializer.Deserialize<QueryBasketType>(query.TypeAction);
                 return methodService.Basket(nameMethod, query.Object);
             }
-            
+            else if (query.Type == QueryType.Store)
+            {
+                var nameMethod = JsonSerializer.Deserialize<QueryStoreType>(query.TypeAction);
+                return methodService.Store(nameMethod, query.Object);
+            }
 
             throw new Exception("Type wasn`t found");
         }

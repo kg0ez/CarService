@@ -11,13 +11,16 @@ namespace CarService.Serv.Services
         private readonly ICarJsonService _carJsonService;
         private readonly IDetailJsonService _detailJsonService;
         private readonly IBasketJsonService _basketJsonService;
+        private readonly IStoreJsonService _storeJsonService;
+
 
         public MethodService(ICarJsonService carJsonService, IDetailJsonService detailJsonService,
-            IBasketJsonService basketJsonService)
+            IBasketJsonService basketJsonService, IStoreJsonService storeJsonService)
         {
             _carJsonService = carJsonService;
             _detailJsonService = detailJsonService;
             _basketJsonService = basketJsonService;
+            _storeJsonService = storeJsonService;
         }
 
         public string Car(QueryCarType query, string obj)
@@ -30,6 +33,14 @@ namespace CarService.Serv.Services
             {
                 int carId = JsonSerializer.Deserialize<int>(obj);
                 return _carJsonService.Get(carId);
+            }
+            throw new Exception("--");
+        }
+        public string Store(QueryStoreType query, string obj)
+        {
+            if (query == QueryStoreType.Get)
+            {
+                return _storeJsonService.Get();
             }
             throw new Exception("--");
         }

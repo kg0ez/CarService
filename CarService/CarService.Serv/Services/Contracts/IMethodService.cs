@@ -8,6 +8,7 @@ namespace CarService.Serv.Services
         string Car(QueryCarType query, string obj);
         string Detail(QueryDetailType query, string obj);
         string Basket(QueryBasketType query, string obj);
+        string Store(QueryStoreType query, string obj);
     }
 }
 

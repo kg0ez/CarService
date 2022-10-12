@@ -24,11 +24,13 @@
     <Folder Include="Views\Car\" />
     <Folder Include="Views\Detail\" />
     <Folder Include="wwwroot\img\details\" />
+    <Folder Include="Views\Store\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Handlers\" />
     <None Remove="ClientConnection\" />
     <None Remove="Views\Car\" />
     <None Remove="Views\Detail\" />
+    <None Remove="Views\Store\" />
   </ItemGroup>
 </Project>
