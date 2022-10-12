@@ -11,6 +11,9 @@ namespace CarService.Common.ModelDto
         public decimal Weight { get; set; }
 
         public CostDto Cost { get; set; }
+
+        public SimpleDetailStore DetailStore { get; set; }
+
     }
 }
 

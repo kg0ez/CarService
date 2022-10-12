@@ -12,10 +12,12 @@ namespace CarService.BusinessLogic.Mapper
             CreateMap<Basket, BasketDto>().ReverseMap();
             CreateMap<Car, CarDto>().ReverseMap();
             CreateMap<CarStore, CarStoreDto>().ReverseMap();
+            CreateMap<CarStore, SimpleCarStore>();
             CreateMap<Characteristic, CharacteristicDto>().ReverseMap();
             CreateMap<Cost, CostDto>().ReverseMap();
             CreateMap<Detail, DetailDto>().ReverseMap();
             CreateMap<DetailStore, DetailStoreDto>().ReverseMap();
+            CreateMap<DetailStore, SimpleDetailStore>();
             CreateMap<PurchaseHistory, PurchaseHistoryDto>().ReverseMap();
             CreateMap<AdditionalCharacteristic, AdditionalCharacteristicDto>().ReverseMap();
         }

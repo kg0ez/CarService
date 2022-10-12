@@ -12,15 +12,18 @@ namespace CarService.Serv.Services
         private readonly IDetailJsonService _detailJsonService;
         private readonly IBasketJsonService _basketJsonService;
         private readonly IStoreJsonService _storeJsonService;
+        private readonly IPurchaseHistoryJsonService _purchaseHistoryJsonService;
 
 
         public MethodService(ICarJsonService carJsonService, IDetailJsonService detailJsonService,
-            IBasketJsonService basketJsonService, IStoreJsonService storeJsonService)
+            IBasketJsonService basketJsonService, IStoreJsonService storeJsonService,
+            IPurchaseHistoryJsonService purchaseHistoryJsonService)
         {
             _carJsonService = carJsonService;
             _detailJsonService = detailJsonService;
             _basketJsonService = basketJsonService;
             _storeJsonService = storeJsonService;
+            _purchaseHistoryJsonService = purchaseHistoryJsonService;
         }
 
         public string Car(QueryCarType query, string obj)
@@ -76,6 +79,22 @@ namespace CarService.Serv.Services
                 return _basketJsonService.Delete(id);
             }
             throw new Exception("--");
+        }
+        public string History(QueryPurchaseHistoryType query, string obj)
+        {
+            if (query == QueryPurchaseHistoryType.Get)
+                return _purchaseHistoryJsonService.Get();
+
+            else if (query == QueryPurchaseHistoryType.SyncDetail)
+                return _purchaseHistoryJsonService.SyncDetail(obj);
+
+            else if (query == QueryPurchaseHistoryType.SyncCar)
+                return _purchaseHistoryJsonService.SyncCar(obj);
+
+            else if (query == QueryPurchaseHistoryType.Delete)
+                return _purchaseHistoryJsonService.Delete(obj);
+
+            throw new Exception("History method wasn`t found");
         }
     }
 }

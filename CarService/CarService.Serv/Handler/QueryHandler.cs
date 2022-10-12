@@ -33,6 +33,11 @@ namespace CarService.Serv.Handler
                 var nameMethod = JsonSerializer.Deserialize<QueryStoreType>(query.TypeAction);
                 return methodService.Store(nameMethod, query.Object);
             }
+            else if (query.Type == QueryType.PurchaseHistory)
+            {
+                var nameMethod = JsonSerializer.Deserialize<QueryPurchaseHistoryType>(query.TypeAction);
+                return methodService.History(nameMethod, query.Object);
+            }
 
             throw new Exception("Type wasn`t found");
         }

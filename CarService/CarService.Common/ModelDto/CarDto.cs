@@ -16,6 +16,8 @@ namespace CarService.Common.ModelDto
 
         public int AdditionalCharacteristicId { get; set; }
         public AdditionalCharacteristicDto AdditionalCharacteristic { get; set; }
+
+        public SimpleCarStore CarStore { get; set; }
     }
 }
 

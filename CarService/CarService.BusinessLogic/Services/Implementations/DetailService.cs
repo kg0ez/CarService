@@ -22,6 +22,7 @@ namespace CarService.BusinessLogic.Services
         {
             var details = _context.Details
                 .Include(d => d.Cost)
+                .Include(d=>d.DetailStore)
                 .AsNoTracking()
                 .ToList();
 

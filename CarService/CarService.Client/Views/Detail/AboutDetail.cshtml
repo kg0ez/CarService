@@ -18,7 +18,10 @@
             <p class="main__decs"><span class="book__characteristics">Время доставки:</span>  @Model.Cost.TimeDelivery</p>
 
             <div class="main__buttoms">
-                <input class="card__link" type="submit" value="Купить сейчас" />
+                @*<input class="card__link" type="submit" value="Купить сейчас" />*@
+                <form asp-route-id="@Model.Id" method="post" asp-action="BuyDetail" asp-controller="Home">
+                    <input class="card__link button-len" type="submit" value="Купить сейчас" />
+                </form>
                 <form asp-controller="Home" asp-action="AddBusket" method="post" asp-route-id="@Model.Id">
                     <input class="card__link" type="submit" value="Добавить в корзину" />
                 </form>

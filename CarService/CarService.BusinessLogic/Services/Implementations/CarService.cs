@@ -20,7 +20,10 @@ namespace CarService.BusinessLogic.Services
 
         public List<CarDto> Get()
         {
-            var cars = _context.Cars.AsNoTracking().ToList();
+            var cars = _context.Cars
+                .Include(c => c.CarStore)
+                .AsNoTracking()
+                .ToList();
 
             var carsDto = _mapper.Map<List<CarDto>>(cars);
 
