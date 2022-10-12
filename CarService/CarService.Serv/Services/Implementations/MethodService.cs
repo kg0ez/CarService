@@ -78,6 +78,11 @@ namespace CarService.Serv.Services
                 var id = JsonSerializer.Deserialize<int>(obj);
                 return _basketJsonService.Delete(id);
             }
+            else if (query == QueryBasketType.GetIdItem)
+            {
+                var id = JsonSerializer.Deserialize<int>(obj);
+                return _basketJsonService.GetIdItem(id);
+            }
             throw new Exception("--");
         }
         public string History(QueryPurchaseHistoryType query, string obj)

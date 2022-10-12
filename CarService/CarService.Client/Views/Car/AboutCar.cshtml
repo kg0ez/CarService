@@ -3,8 +3,9 @@
 <section>
     <div class="main">
         <div class="main__image">
-            <img class="main__img" src="~/img/cars/@Model.Img" alt="img" />
-            
+            <img class="main__img" src="~/img/cars/@Model.Img.Split(' ')[0]" alt="img" />
+            <img class="main__img" src="~/img/cars/@Model.Img.Split(' ')[1]" alt="img" />
+            <img class="main__img" src="~/img/cars/@Model.Img.Split(' ')[2]" alt="img" />
         </div>
         <div class="main__text">
             <div>
@@ -28,7 +29,6 @@
             <p class="main__decs"><span class="book__characteristics">Фары:</span>  @Model.AdditionalCharacteristic.Lights</p>
             <p class="main__decs"><span class="book__characteristics">Описание:</span>  @Model.Characteristics.Description</p>
             <div class="main__buttoms">
-                <input class="card__link" type="submit" value="Купить сейчас" />
                 <form asp-route-id="@Model.Id" method="post" asp-action="BuyCar" asp-controller="Home">
                     <input class="card__link button-len" type="submit" value="Купить" />
                 </form>

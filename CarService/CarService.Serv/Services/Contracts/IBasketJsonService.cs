@@ -6,6 +6,7 @@ namespace CarService.Serv.Services
         string Add(int detailId);
         string Delete(int id);
         string Get();
+        string GetIdItem(int id);
     }
 }
 

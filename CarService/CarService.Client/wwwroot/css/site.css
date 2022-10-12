@@ -19,7 +19,7 @@ body {
 */
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(113.49deg,#984D38 -30.3%, #181E41 58.12%) no-repeat;
+    background: linear-gradient(113.49deg,#9c9c30 -30.3%, #244961 58.12%) no-repeat;
     font-weight: 500;
     color: #fff;
     /*    min-height: 100%;*/
@@ -105,7 +105,7 @@ html {
 }
 
 .header__link_gradient {
-    background: linear-gradient(214.02deg, #B75CFF 6.04%, #671AE4 92.95%);
+    background: linear-gradient(214.02deg, #9c9c30 6.04%, #244961 92.95%);
     border-radius: 10px;
     padding: 10px 20px;
 }
@@ -121,7 +121,10 @@ html {
     font-weight: 700;
     text-align: center;
 }
-
+.header__main-text {
+    font-size: 28px;
+    font-weight: 700;
+}
 .desc {
     font-size: 20px;
     color: rgba(255,255,255,0.5);
@@ -145,7 +148,7 @@ html {
     box-sizing: border-box;
     transition: .3s;
     margin-bottom: 10px;
-    height: 700px;
+    height: 650px;
     position: relative;
 }
 .card__item-store {
@@ -219,7 +222,7 @@ html {
     color: #fff;
     text-decoration: none;
     border-radius: 10px;
-    background: linear-gradient(214.02deg, #B75CFF 6.04%, #671AE4 92.95%);
+    background: linear-gradient(214.02deg, #244961 6.04%, #9c9c30 92.95%);
     padding: 11px 20px;
 }
 
@@ -228,7 +231,7 @@ html {
     }
 
     .card__link:hover {
-        background: linear-gradient(45deg, #B75CFF 33%, #671AE4 60%);
+        background: linear-gradient(45deg, #244961 33%, #9c9c30 60%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         border: 1px solid #fff;
@@ -405,7 +408,9 @@ html {
 }
 
 .main__image {
-    flex-basis: calc(100%-490px-116px);
+/*    flex-basis: calc(100%-390px-116px);*/
+/*      max-height:500px;*/
+      max-width:650px;
 }
 
 .main__img {

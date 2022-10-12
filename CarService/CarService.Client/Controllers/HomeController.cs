@@ -34,7 +34,7 @@ public class HomeController : Controller
 
         if (!isAdded)
             return NotFound();
-        return RedirectPermanent("~/Car/Index");
+        return RedirectPermanent("~/Detail/Index");
         //return RedirectToAction("~/Car/Index");
     }
 
@@ -95,8 +95,39 @@ public class HomeController : Controller
 
         var history = JsonSerializer.Deserialize<bool>(answer);
 
-        return RedirectToActionPermanent("HistoryPaymentPage", "Home");
+        return RedirectToActionPermanent("HistoryPayment", "Home");
     }
+
+
+    [HttpPost]
+    public IActionResult BuyFromBasket(Nullable<int> id)
+    {
+        if (!id.HasValue)
+            return NotFound();
+
+        var typeAction = QueryHandler<QueryBasketType>.QueryTypeSerialize(QueryBasketType.GetIdItem);
+
+        string json = QueryHandler<int>.Serialize((int)id, QueryType.Basket, typeAction);
+
+        string answer = Connection.Client(json);
+
+        var detailId = JsonSerializer.Deserialize<int>(answer);
+
+        BuyDetail(detailId);
+        typeAction = QueryHandler<QueryBasketType>.QueryTypeSerialize(QueryBasketType.Delete);
+
+        json = QueryHandler<int>.Serialize((int)id, QueryType.Basket, typeAction);
+
+        answer = Connection.Client(json);
+
+        var isDeleted = JsonSerializer.Deserialize<bool>(answer);
+
+        if (!isDeleted)
+            return NotFound();
+        return RedirectToAction("Basket");
+
+    }
+
 
     [HttpPost]
     public IActionResult BuyDetail(Nullable<int> id)
@@ -104,13 +135,7 @@ public class HomeController : Controller
         if (!id.HasValue)
             return NotFound();
 
-        var typeAction = QueryHandler<QueryPurchaseHistoryType>.QueryTypeSerialize(QueryPurchaseHistoryType.SyncDetail);
-
-        string json = QueryHandler<int>.Serialize((int)id, QueryType.PurchaseHistory, typeAction);
-
-        string answer = Connection.Client(json);
-
-        var historyPayment = JsonSerializer.Deserialize<bool>(answer);
+        BuyDetail((int)id);
 
         return RedirectPermanent("~/Detail/Index");
     }
@@ -130,6 +155,18 @@ public class HomeController : Controller
         var historyPayment = JsonSerializer.Deserialize<bool>(answer);
 
         return RedirectPermanent("~/Car/Index");
+    }
+    private bool BuyDetail(int id)
+    {
+        var typeAction = QueryHandler<QueryPurchaseHistoryType>.QueryTypeSerialize(QueryPurchaseHistoryType.SyncDetail);
+
+        string json = QueryHandler<int>.Serialize(id, QueryType.PurchaseHistory, typeAction);
+
+        string answer = Connection.Client(json);
+
+        var isDone = JsonSerializer.Deserialize<bool>(answer);
+
+        return isDone;
     }
 }
 

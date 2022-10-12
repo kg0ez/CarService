@@ -8,6 +8,7 @@ namespace CarService.BusinessLogic.Services
         bool Add(int detailId);
         bool Delete(int id);
         List<BasketDto> Get();
+        int GetIdItem(int id);
     }
 }
 

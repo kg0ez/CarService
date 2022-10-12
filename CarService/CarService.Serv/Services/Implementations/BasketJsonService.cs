@@ -40,6 +40,14 @@ namespace CarService.Serv.Services
 
             return response;
         }
+        public string GetIdItem(int id)
+        {
+            var itemId = _basketService.GetIdItem(id);
+
+            var response = JsonSerializer.Serialize<int>(itemId);
+
+            return response;
+        }
     }
 }
 

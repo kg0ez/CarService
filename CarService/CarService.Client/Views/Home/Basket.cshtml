@@ -22,7 +22,7 @@
                         <div class="card__b">
                             <a asp-action="AboutDetail" asp-controller="Detail" asp-route-id="@item.Detail.Id" class="card__link">Больше информации</a>
 
-                            <form asp-route-id="@item.Detail.Id" method="post" asp-action="BuyDetail" asp-controller="Home">
+                            <form asp-route-id="@item.Id" method="post" asp-action="BuyFromBasket" asp-controller="Home">
                                 <input class="card__link button-len" type="submit" value="Купить сейчас" />
                             </form>
 

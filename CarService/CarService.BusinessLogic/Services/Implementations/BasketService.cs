@@ -33,7 +33,11 @@ namespace CarService.BusinessLogic.Services
             _context.Baskets.Remove(basket);
             return _context.SaveChanges() > 0 ? true : false;
         }
-
+        public int GetIdItem(int id)
+        {
+            var itemId = _context.Baskets.FirstOrDefault(b => b.Id == id)!.DetailId;
+            return itemId;
+        }
         public List<BasketDto> Get()
         {
             var basket = _context.Baskets

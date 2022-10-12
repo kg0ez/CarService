@@ -65,7 +65,7 @@ namespace CarService.BusinessLogic.Services
             {
                 Name = car.Brand+ " "+ car.Model,
                 Price = car.Cost,
-                Img = "cars/" + car.Img
+                Img = "cars/" + car.Img.Split(' ')[0]
             };
 
             _context.PurchaseHistories.Add(purchaseHistory);

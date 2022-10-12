@@ -5,7 +5,8 @@ namespace CarService.Common.Enums
     {
         Add,
         Delete,
-        Get
+        Get,
+        GetIdItem
     }
 }
 
